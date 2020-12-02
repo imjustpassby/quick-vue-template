@@ -25,7 +25,7 @@ export default {
   methods: {}
 };
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 span {
   font-size: 36px;
   line-height: 1em;

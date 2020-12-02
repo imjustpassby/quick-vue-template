@@ -11,7 +11,7 @@ function resolve(dir) {
 module.exports = {
   context: path.resolve(__dirname, "../"),
   entry: {
-    app: "./src/main.js"
+    app: "./src/main.js",
   },
   output: {
     path: config.build.assetsRoot,
@@ -19,7 +19,7 @@ module.exports = {
     publicPath:
       process.env.NODE_ENV === "production"
         ? config.build.assetsPublicPath
-        : config.dev.assetsPublicPath
+        : config.dev.assetsPublicPath,
   },
   /* externals: {
     vue: "Vue",
@@ -34,8 +34,8 @@ module.exports = {
     extensions: [".js", ".vue", ".json"],
     alias: {
       vue$: "vue/dist/vue.esm.js",
-      "@": resolve("src")
-    }
+      "@": resolve("src"),
+    },
   },
   plugins: [new VueLoaderPlugin()],
   module: {
@@ -43,16 +43,16 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: "vue-loader",
-        options: vueLoaderConfig
+        options: vueLoaderConfig,
       },
       {
         test: /\.js$/,
         loader: "babel-loader",
         include: [
           resolve("src"),
-          resolve("test")
+          resolve("test"),
           // resolve("node_modules/webpack-dev-server/client")
-        ]
+        ],
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -61,40 +61,28 @@ module.exports = {
             loader: "url-loader",
             options: {
               limit: 10000,
-              name: utils.assetsPath("img/[name].[hash:7].[ext]")
-            }
+              name: utils.assetsPath("img/[name].[hash:7].[ext]"),
+            },
           },
-          {
-            loader: "img-loader", //配置图片资源加载器，用于图片压缩
-            options: {
-              plugins: [
-                //给图片资源加载配置插件
-                require("imagemin-pngquant")({
-                  //用于图片压缩的imagemin-pngquant，还有一个隐式调用的加载器imagemin-loader
-                  quality: [0.4, 0.6] //图片压缩30%~50%
-                })
-              ]
-            }
-          }
-        ]
+        ],
       },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
         loader: "url-loader",
         options: {
           limit: 10000,
-          name: utils.assetsPath("media/[name].[hash:7].[ext]")
-        }
+          name: utils.assetsPath("media/[name].[hash:7].[ext]"),
+        },
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: "url-loader",
         options: {
           limit: 10000,
-          name: utils.assetsPath("fonts/[name].[hash:7].[ext]")
-        }
-      }
-    ]
+          name: utils.assetsPath("fonts/[name].[hash:7].[ext]"),
+        },
+      },
+    ],
   },
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue
@@ -106,6 +94,6 @@ module.exports = {
     fs: "empty",
     net: "empty",
     tls: "empty",
-    child_process: "empty"
-  }
+    child_process: "empty",
+  },
 };

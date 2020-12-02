@@ -4,7 +4,7 @@ import Vue from "vue";
 import App from "./App";
 import router from "./router";
 import store from "./store";
-import "@/style/index.scss";
+import "@/style/index.less";
 import "@/permission.js";
 
 import VueLazyLoad from "vue-lazyload";
@@ -12,7 +12,7 @@ import VueLazyLoad from "vue-lazyload";
 Vue.config.productionTip = false;
 Vue.use(VueLazyLoad, {
   error: require("../static/img/loading.gif"),
-  loading: require("../static/img/loading.gif")
+  loading: require("../static/img/loading.gif"),
 });
 /* eslint-disable no-new */
 new Vue({
@@ -20,7 +20,7 @@ new Vue({
   router,
   store,
   components: {
-    App
+    App,
   },
-  template: "<App/>"
+  template: "<App/>",
 });
